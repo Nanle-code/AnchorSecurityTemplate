@@ -46,3 +46,15 @@ pub struct TransferSecure<'info> {
 ```
 
 By using `Program<'info, System>`, it becomes impossible for a caller to pass any account other than the official Solana System Program.
+
+---
+
+## 🎭 The Pinocchio Perspective
+
+In **Pinocchio**, CPI safety requires you to manually check the Program ID.
+
+1. You fetch the `account_info` for the external program.
+2. You compare its key against the constant ID: `if program_info.key() != &system_program::ID { return Err(...); }`.
+3. Pinocchio doesn't have a specific `Program` wrapper, so the developer must remember to perform this check before every `invoke`.
+
+This explicit nature makes Pinocchio code very transparent but increases the risk of human error compared to Anchor's automated type-checking.

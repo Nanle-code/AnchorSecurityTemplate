@@ -34,6 +34,7 @@ To understand Solana security, you must internalize these three pillars:
 
 - [**DEEP_DIVE.md**](./DEEP_DIVE.md): 🎓 **A comprehensive article explaining Solana attack vectors.**
 - [**BEST_PRACTICES.md**](./SECURITY.md): A concise summary of do's and don'ts.
+- [**PINOCCHIO.md**](./PINOCCHIO.md): 🤺 **A deep comparison between Anchor and Pinocchio frameworks.**
 - [**CHEAT_SHEET.md**](./CHEAT_SHEET.md): A quick-reference guide for Anchor security constraints.
 - [**GLOSSARY.md**](./GLOSSARY.md): Definitions for Solana-specific security terms.
 - [**RESOURCES.md**](./RESOURCES.md): Where to go next to become a master.

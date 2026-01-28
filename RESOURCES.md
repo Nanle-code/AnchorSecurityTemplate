@@ -5,6 +5,7 @@ To deepen your understanding of Solana security, explore the following resources
 ## Official Documentation
 - [Solana Security Best Practices](https://docs.solana.com/developing/programming-model/security)
 - [Anchor Documentation](https://www.anchor-lang.com/docs/security)
+- [Pinocchio Framework](https://github.com/anza-xyz/pinocchio)
 
 ## Community Guides
 - [Neodyme: Solana Security Workshop](https://workshop.neodyme.io/)

@@ -6,6 +6,12 @@ declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 pub mod ownership_validation {
     use super::*;
 
+    pub fn initialize(ctx: Context<Initialize>, admin: Pubkey) -> Result<()> {
+        let config = &mut ctx.accounts.config;
+        config.admin = admin;
+        Ok(())
+    }
+
     // --- CASE 1: THE VULNERABLE APPROACH ---
     
     /// VULNERABILITY: Insecure Ownership Verification
@@ -56,6 +62,15 @@ pub mod ownership_validation {
         config.admin = new_admin;
         Ok(())
     }
+}
+
+#[derive(Accounts)]
+pub struct Initialize<'info> {
+    #[account(init, payer = user, space = 8 + 32)]
+    pub config: Account<'info, Config>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]

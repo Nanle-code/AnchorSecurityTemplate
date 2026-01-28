@@ -42,3 +42,15 @@ pub struct WithdrawSecure<'info> {
 ```
 
 Additional security is provided by `has_one = authority`, which ensures that the `vault.authority` field matches the provided `authority` account.
+
+---
+
+## 🎭 The Pinocchio Perspective
+
+In **Pinocchio**, signature verification is explicit. 
+
+1. You fetch the `account_info` for the authority.
+2. You must call `authority.is_signer()` manually.
+3. If it returns `false`, you must throw a custom error immediately.
+
+Pinocchio programs are often used for high-performance bots or DEXs where developers might want to conditionally allow non-signer operations (though very rare), whereas Anchor enforces the signer status at the framework level for safety.

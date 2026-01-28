@@ -45,3 +45,13 @@ pub fn deposit_secure(ctx: Context<UpdateBalance>, amount: u64) -> Result<()> {
 ```
 
 This returns a clean error instead of panicking the whole transaction, which is better for both security and user experience.
+
+---
+
+## 🎭 The Pinocchio Perspective
+
+In **Pinocchio**, arithmetic safety is handled exactly like standard Rust. 
+
+1. You use `.checked_add()` or `.checked_sub()`.
+2. Since Pinocchio avoids large dependencies, you typically use the core Rust arithmetic methods.
+3. Because Pinocchio is often used in performance-critical loops, developers might occasionally use `unchecked_add` if they have *already* validated the range earlier in the program, but this is high-risk and requires extensive testing.

@@ -49,3 +49,15 @@ By using `Account<'info, Config>`, Anchor will:
 1. Check that `config.owner == program_id`.
 2. Deserialize the data into the `Config` struct.
 3. (Optional) perform additional checks like `has_one`.
+
+---
+
+## 🎭 The Pinocchio Perspective
+
+In **Pinocchio**, there are no magic wrappers like `Account`. 
+
+1. You receive a list of raw accounts.
+2. You must manually call `account.owner()` and compare it to your Program ID.
+3. Because Pinocchio is **zero-copy**, you aren't "deserializing" into a struct; you are reading bytes directly from the memory buffer.
+
+While this is faster (lower Compute Units), it places the burden of security entirely on the developer. If you forget the `owner()` check in Pinocchio, you are 100% vulnerable.

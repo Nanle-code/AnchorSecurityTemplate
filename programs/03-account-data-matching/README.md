@@ -56,3 +56,15 @@ Alternatively, using PDAs (Program Derived Addresses) with the user's key as a s
 pub profile: Account<'info, UserProfile>,
 ```
 This ensures that there is only one valid profile account for each user.
+
+---
+
+## 🎭 The Pinocchio Perspective
+
+In **Pinocchio**, relationship validation is handled by parsing the raw data buffer.
+
+1. You use a pointer to read the `user` field from the `UserProfile` account's data.
+2. You manually check if `profile_user_ptr.key() == user_account.key()`.
+3. Since Pinocchio gives you the "raw power" of pointer access, you must be extremely careful not to mis-calculate the offset in the byte array.
+
+Anchor’s `has_one` is essentially a safe, high-level abstraction over this byte-parsing logic.
