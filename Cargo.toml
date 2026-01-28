@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "programs/01-ownership-validation",
+    "programs/02-signer-authorization",
+    "programs/03-account-data-matching",
+    "programs/04-arithmetic-safety",
+    "programs/05-cpi-reentrancy",
+]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+panic = "abort"
